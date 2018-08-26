@@ -1,4 +1,4 @@
-package polyscheme
+package polyschema
 
 func checkNumber(parent, child JsonSchema) TypesIdentity {
 

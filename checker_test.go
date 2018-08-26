@@ -1,4 +1,4 @@
-package polyscheme
+package polyschema
 
 import (
 	"testing"

@@ -1,4 +1,4 @@
-package polyscheme
+package polyschema
 
 // checkObject checks identity of parent and child of type `object`
 // Returns 0 if types are equal, 1 if child is subtype of parent and -1 if child is not equal and not subtype of parent.

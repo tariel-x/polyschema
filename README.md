@@ -1,5 +1,7 @@
 # Polyschema
 
+[![Go Report Card](https://goreportcard.com/badge/github.com/tariel-x/polyschema)](https://goreportcard.com/report/github.com/tariel-x/polyschema)
+
 JSON-Schema based type resolver for golang.
 
 Type here is any standard json-schema. However standard specification do not consider 

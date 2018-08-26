@@ -130,7 +130,7 @@ func TestSubtypeObjectsPropertiesEqual(t *testing.T) {
 		Type: &typeName,
 		JSTypeObj: JSTypeObj{
 			Properties: map[string]JsonSchema{
-				"a": JsonSchema{
+				"a": {
 					Type: &subtypeName,
 				},
 			},
@@ -140,7 +140,7 @@ func TestSubtypeObjectsPropertiesEqual(t *testing.T) {
 		Type: &typeName,
 		JSTypeObj: JSTypeObj{
 			Properties: map[string]JsonSchema{
-				"a": JsonSchema{
+				"a": {
 					Type: &subtypeName,
 				},
 			},
@@ -161,7 +161,7 @@ func TestSubtypeObjectsPropertiesNotEqual(t *testing.T) {
 		Type: &typeName,
 		JSTypeObj: JSTypeObj{
 			Properties: map[string]JsonSchema{
-				"a": JsonSchema{
+				"a": {
 					Type: &subtypeName1,
 				},
 			},
@@ -171,7 +171,7 @@ func TestSubtypeObjectsPropertiesNotEqual(t *testing.T) {
 		Type: &typeName,
 		JSTypeObj: JSTypeObj{
 			Properties: map[string]JsonSchema{
-				"a": JsonSchema{
+				"a": {
 					Type: &subtypeName2,
 				},
 			},
@@ -191,7 +191,7 @@ func TestSubtypeObjectsPropertiesNotEqual2(t *testing.T) {
 		Type: &typeName,
 		JSTypeObj: JSTypeObj{
 			Properties: map[string]JsonSchema{
-				"a": JsonSchema{
+				"a": {
 					Type: &subtypeName1,
 				},
 			},
@@ -201,7 +201,7 @@ func TestSubtypeObjectsPropertiesNotEqual2(t *testing.T) {
 		Type: &typeName,
 		JSTypeObj: JSTypeObj{
 			Properties: map[string]JsonSchema{
-				"b": JsonSchema{
+				"b": {
 					Type: &subtypeName1,
 				},
 			},
@@ -222,7 +222,7 @@ func TestSubtypeObjectsPropertiesSubtype(t *testing.T) {
 		Type: &typeName,
 		JSTypeObj: JSTypeObj{
 			Properties: map[string]JsonSchema{
-				"a": JsonSchema{
+				"a": {
 					Type: &subtypeName1,
 				},
 			},
@@ -232,10 +232,10 @@ func TestSubtypeObjectsPropertiesSubtype(t *testing.T) {
 		Type: &typeName,
 		JSTypeObj: JSTypeObj{
 			Properties: map[string]JsonSchema{
-				"a": JsonSchema{
+				"a": {
 					Type: &subtypeName1,
 				},
-				"b": JsonSchema{
+				"b": {
 					Type: &subtypeName2,
 				},
 			},
@@ -256,11 +256,11 @@ func TestSubtypeObjectsPropertiesNotEqual3(t *testing.T) {
 		Type: &objType,
 		JSTypeObj: JSTypeObj{
 			Properties: map[string]JsonSchema{
-				"a": JsonSchema{
+				"a": {
 					Type: &objType,
 					JSTypeObj: JSTypeObj{
 						Properties: map[string]JsonSchema{
-							"a": JsonSchema{
+							"a": {
 								Type: &numType,
 							},
 						},
@@ -273,11 +273,11 @@ func TestSubtypeObjectsPropertiesNotEqual3(t *testing.T) {
 		Type: &objType,
 		JSTypeObj: JSTypeObj{
 			Properties: map[string]JsonSchema{
-				"a": JsonSchema{
+				"a": {
 					Type: &objType,
 					JSTypeObj: JSTypeObj{
 						Properties: map[string]JsonSchema{
-							"a": JsonSchema{
+							"a": {
 								Type: &strType,
 							},
 						},
@@ -300,11 +300,11 @@ func TestSubtypeObjectsPropertiesSubtype2(t *testing.T) {
 		Type: &objType,
 		JSTypeObj: JSTypeObj{
 			Properties: map[string]JsonSchema{
-				"a": JsonSchema{
+				"a": {
 					Type: &objType,
 					JSTypeObj: JSTypeObj{
 						Properties: map[string]JsonSchema{
-							"a": JsonSchema{
+							"a": {
 								Type: &strType,
 							},
 						},
@@ -317,14 +317,14 @@ func TestSubtypeObjectsPropertiesSubtype2(t *testing.T) {
 		Type: &objType,
 		JSTypeObj: JSTypeObj{
 			Properties: map[string]JsonSchema{
-				"a": JsonSchema{
+				"a": {
 					Type: &objType,
 					JSTypeObj: JSTypeObj{
 						Properties: map[string]JsonSchema{
-							"a": JsonSchema{
+							"a": {
 								Type: &strType,
 							},
-							"b": JsonSchema{
+							"b": {
 								Type: &strType,
 							},
 						},
@@ -364,7 +364,7 @@ func TestSubtypeStringCheck(t *testing.T) {
 func TestSubtypeStringCheck2(t *testing.T) {
 	typeName := String
 	type1 := JsonSchema{
-		Type: &typeName,
+		Type:         &typeName,
 		JSTypeString: JSTypeString{},
 	}
 	type2 := JsonSchema{
@@ -440,7 +440,7 @@ func TestSubtypeArrayCheckSubtype(t *testing.T) {
 		Type: &arrType,
 		JSTypeArr: JSTypeArr{
 			Items: &JsonSchema{
-				Type: &strType,
+				Type:         &strType,
 				JSTypeString: JSTypeString{},
 			},
 		},

@@ -24,7 +24,7 @@ func checkArray(parent, child JsonSchema) TypesIdentity {
 	}
 
 	// items
-	if parent.Items != nil && child.Items != nil{
+	if parent.Items != nil && child.Items != nil {
 		switch Subtype(*parent.Items, *child.Items) {
 		case TypesNotEqual:
 			return TypesNotEqual
@@ -38,7 +38,7 @@ func checkArray(parent, child JsonSchema) TypesIdentity {
 	}
 
 	// contains
-	if parent.Contains != nil && child.Contains != nil{
+	if parent.Contains != nil && child.Contains != nil {
 		switch Subtype(*parent.Contains, *child.Contains) {
 		case TypesNotEqual:
 			return TypesNotEqual
@@ -52,7 +52,7 @@ func checkArray(parent, child JsonSchema) TypesIdentity {
 	}
 
 	// additionalItems
-	if parent.AdditionalItems != nil && child.AdditionalItems != nil{
+	if parent.AdditionalItems != nil && child.AdditionalItems != nil {
 		switch Subtype(*parent.AdditionalItems, *child.AdditionalItems) {
 		case TypesNotEqual:
 			return TypesNotEqual

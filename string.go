@@ -9,7 +9,7 @@ func checkString(parent, child JsonSchema) TypesIdentity {
 	}
 
 	if parent.MaxLength == nil && child.MaxLength != nil {
-		identity =  TypesSubtype
+		identity = TypesSubtype
 	}
 
 	if parent.MinLength != nil && child.MinLength != nil && *parent.MinLength != *child.MinLength {
@@ -17,7 +17,7 @@ func checkString(parent, child JsonSchema) TypesIdentity {
 	}
 
 	if parent.MinLength == nil && child.MinLength != nil {
-		identity =  TypesSubtype
+		identity = TypesSubtype
 	}
 
 	if parent.Pattern != nil && child.Pattern != nil && *parent.Pattern != *child.Pattern {
@@ -25,7 +25,7 @@ func checkString(parent, child JsonSchema) TypesIdentity {
 	}
 
 	if parent.Pattern == nil && child.Pattern != nil {
-		identity =  TypesSubtype
+		identity = TypesSubtype
 	}
 
 	return identity

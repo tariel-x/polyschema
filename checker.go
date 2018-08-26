@@ -3,11 +3,15 @@ package polyschema
 type TypesIdentity int8
 
 const (
-	TypesEqual    TypesIdentity = 0
+	// TypesEqual means that the type A is identical to the type B
+	TypesEqual TypesIdentity = 0
+	// TypesNotEqual means that the type B is neither subtype nor equal type to the A
 	TypesNotEqual TypesIdentity = -1
-	TypesSubtype  TypesIdentity = 1
+	// TypesSubtype means that the type B is subtype of the A
+	TypesSubtype TypesIdentity = 1
 )
 
+// Subtype checks if child is subtype or equal type to parent
 func Subtype(parent, child JsonSchema) TypesIdentity {
 	if eq := checkTypeIdentity(parent, child); eq == TypesNotEqual {
 		return TypesNotEqual

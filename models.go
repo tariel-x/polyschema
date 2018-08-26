@@ -1,8 +1,10 @@
 package polyschema
 
+// TypeName contains name of JSON-Schema basic type (e.g. integer, object)
 type TypeName string
 
 const (
+	// JSON-Schema basic types
 	Object       TypeName = "object"
 	Number       TypeName = "number"
 	Array        TypeName = "array"
@@ -10,8 +12,7 @@ const (
 	Unrecognized TypeName = "unrecognized"
 )
 
-type Types map[string]JsonSchema
-
+// JsonSchema is type for unmarshalled json-schema
 type JsonSchema struct {
 	JSTypeString
 	JSTypeInt
@@ -24,17 +25,20 @@ type JsonSchema struct {
 	Definitions map[string]JsonSchema `json:"definitions,omitempty"`
 }
 
+// JSTypeObj is type for unmarshalled json-schema object type
 type JSTypeObj struct {
 	Required   []string              `json:"required,omitempty"`
 	Properties map[string]JsonSchema `json:"properties,omitempty"`
 }
 
+// JSTypeString is type for unmarshalled json-schema string type
 type JSTypeString struct {
 	MaxLength *int    `json:"maxLength,omitempty"`
 	MinLength *int    `json:"minLength,omitempty"`
 	Pattern   *string `json:"pattern,omitempty"`
 }
 
+// JSTypeInt is type for unmarshalled json-schema integer type
 type JSTypeInt struct {
 	Minimum          *int `json:"minimum,omitempty"`
 	ExclusiveMinimum *int `json:"exclusiveMinimum,omitempty"`
@@ -43,6 +47,7 @@ type JSTypeInt struct {
 	MultipleOf       *int `json:"multipleOf,omitempty"`
 }
 
+// JSTypeArr is type for unmarshalled json-schema array type
 type JSTypeArr struct {
 	MaxItems        *int        `json:"maxItems,omitempty"`
 	MinItems        *int        `json:"minItems,omitempty"`

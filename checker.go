@@ -26,6 +26,8 @@ func Subtype(parent, child JsonSchema) TypesIdentity {
 		return checkString(parent, child)
 	case Number:
 		return checkNumber(parent, child)
+	case Integer:
+		return checkNumber(parent, child)
 	case Array:
 		return checkArray(parent, child)
 	}

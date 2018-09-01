@@ -7,6 +7,7 @@ const (
 	// JSON-Schema basic types
 	Object       TypeName = "object"
 	Number       TypeName = "number"
+	Integer      TypeName = "integer"
 	Array        TypeName = "array"
 	String       TypeName = "string"
 	Unrecognized TypeName = "unrecognized"

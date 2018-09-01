@@ -494,3 +494,12 @@ func TestSubtypeArrayCheckNotEqual(t *testing.T) {
 		t.Errorf("type1 to type2 identity is %d, expects %d", ident, TypesNotEqual)
 	}
 }
+
+func TestSubtypeRawEqual(t *testing.T) {
+	type1 := `{"$schema":"http://json-schema.org/schema#","type":"object","properties":{"b":{"type":"integer"}},"required":["b"]}`
+	type2 := `{"$schema":"http://json-schema.org/schema#","type":"object","properties":{"b":{"type":"integer"}},"required":["b"]}`
+	ident, _ := SubtypeRaw(type1, type2)
+	if ident != TypesEqual {
+		t.Errorf("type1 to type2 identity is %d, expects %d", ident, TypesEqual)
+	}
+}

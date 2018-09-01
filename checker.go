@@ -1,5 +1,7 @@
 package polyschema
 
+import "encoding/json"
+
 type TypesIdentity int8
 
 const (
@@ -29,6 +31,21 @@ func Subtype(parent, child JsonSchema) TypesIdentity {
 	}
 
 	return TypesNotEqual
+}
+
+// SubtypeRaw unmarshalls raw schemas and checks if child is subtype or equal type to parent
+func SubtypeRaw(parentRaw, childRaw string) (TypesIdentity, error) {
+	var parent, child JsonSchema
+
+	if err := json.Unmarshal([]byte(parentRaw), &parent); err != nil {
+		return TypesNotEqual, err
+	}
+
+	if err := json.Unmarshal([]byte(childRaw), &child); err != nil {
+		return TypesNotEqual, err
+	}
+
+	return Subtype(parent, child), nil
 }
 
 func checkTypeIdentity(schema1, schema2 JsonSchema) TypesIdentity {
